@@ -1,0 +1,39 @@
+{
+    "welcome": "Hoşgeldiniz",
+    "onBoard":{
+        "page1":
+        {"title":"Kelimeleri Ekle","desc":"Öğrenmek istediğin kelimeleri anlamları ile ekle"},
+        "page2":
+        {"title":"Kelimeleri Ezberle","desc":"Kelimeleri ezberle ve listeni güncelle"},
+        "page3":
+        {"title":"Cümle Kur","desc":"Öğrendiğin kelimeler ile cümleler kur"}
+    },
+
+    "login":{
+        "tab1":"Giriş Yap",
+        "tab2":"Üye Ol",
+        "email":"Email",
+        "password":"Şifre",
+        "forgotText":"Şifremi Unuttum",
+        "login":"Giriş",
+        "dontAccount":"Henüz üye değil misiniz?"
+    },
+    "home":{
+        "build":{
+            "tabbar":{
+                "tab1":"Latest",
+                "tab2":"Decorative",
+                "tab3":"Music",
+                "tab4":"Style"
+            },
+            "subTitle":"Recommended"
+        }
+    },
+    "kelimeEkle":{
+        "KelimeEN":"Kelime EN",
+        "KelimeTR":"Kelime TR"
+    },
+    "buttons":{
+        "BtnEkle":"Ekle"
+    }
+}
