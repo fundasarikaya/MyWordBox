@@ -1,1 +1,1 @@
-# Flutter Architecture Template
+# My Word Box
