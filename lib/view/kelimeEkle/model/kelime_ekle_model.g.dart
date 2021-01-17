@@ -8,17 +8,17 @@ part of 'kelime_ekle_model.dart';
 
 KelimeEkleModel _$KelimeEkleModelFromJson(Map<String, dynamic> json) {
   return KelimeEkleModel(
-    ezberlendi: json['Ezberlendi'] as bool,
-    kelimeEN: json['KelimeEN'] as String,
-    kelimeTR: json['KelimeTR'] as String,
-    kullaniciID: json['KullaniciID'] as int,
+    memorized: json['Memorized'] as bool,
+    english: json['English'] as String,
+    turkish: json['Turkish'] as String,
+    userId: json['UserId'] as int,
   );
 }
 
 Map<String, dynamic> _$KelimeEkleModelToJson(KelimeEkleModel instance) =>
     <String, dynamic>{
-      'Ezberlendi': instance.ezberlendi,
-      'KelimeEN': instance.kelimeEN,
-      'KelimeTR': instance.kelimeTR,
-      'KullaniciID': instance.kullaniciID,
+      'Memorized': instance.memorized,
+      'English': instance.english,
+      'Turkish': instance.turkish,
+      'UserId': instance.userId,
     };

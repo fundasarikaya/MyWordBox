@@ -1,28 +1,27 @@
 import 'package:MyWordBox/core/base/view/base_widget.dart';
 import 'package:MyWordBox/core/constants/navigation/navigation_constants.dart';
-import 'package:MyWordBox/view/kelimeler/model/kelime_model.dart';
-import 'package:MyWordBox/view/kelimeler/viewmodel/kelime_view_model.dart';
+import 'package:MyWordBox/view/lines/viewmodel/lines_view_model.dart';
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
-class KelimeView extends StatelessWidget {
+class LinesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BaseView<KelimeViewModel>(
-      viewModel: KelimeViewModel(),
+    return BaseView<LinesViewModel>(
+      viewModel: LinesViewModel(),
       onModelReady: (model) {
         model.setContext(context);
         model.init();
         model.getListAll();
       },
-      onPageBuilder: (BuildContext context, KelimeViewModel viewModel) =>
+      onPageBuilder: (BuildContext context, LinesViewModel viewModel) =>
           Scaffold(
         appBar: buildAppBar(context),
         body: Observer(builder: (_) {
           return viewModel.isLoading
               ? buildCenter()
-              : viewModel.kelimeModels == null || viewModel.kelimeModels.isEmpty
+              : viewModel.linesModels == null || viewModel.linesModels.isEmpty
                   ? Center(
                       child: Text("Not Found"),
                     )
@@ -35,14 +34,14 @@ class KelimeView extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: Colors.lightBlueAccent[100],
-      title: Text("Kelimeler"),
+      title: Text("Replikler"),
       elevation: 10,
       actions: [
         IconButton(
             icon: Icon(Icons.add),
             onPressed: () {
               Navigator.of(context)
-                  .pushNamed(NavigationConstants.KELIME_EKLE_VIEW);
+                  .pushNamed(NavigationConstants.LINE_ADD_VIEW);
             })
       ],
     );
@@ -50,36 +49,36 @@ class KelimeView extends StatelessWidget {
 
   Center buildCenter() => Center(child: CircularProgressIndicator());
 
-  ListView buildListViewMenus(KelimeViewModel viewModel, BuildContext context) {
+  ListView buildListViewMenus(LinesViewModel viewModel, BuildContext context) {
     return ListView(
       children: [buildListBottom(viewModel)],
     );
   }
 
-  ListView buildListBottom(KelimeViewModel viewModel) {
+  ListView buildListBottom(LinesViewModel viewModel) {
     return ListView.builder(
       physics: NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) => FlipCard(
         direction: FlipDirection.VERTICAL,
-        front: KelimeCard(
-          kelime: viewModel.kelimeModels[index].english,
-          ezberlendi: viewModel.kelimeModels[index].memorized,
+        front: LineCard(
+          line: viewModel.linesModels[index].english,
+          ezberlendi: viewModel.linesModels[index].memorized,
         ),
-        back: KelimeDetailCard(
-          title: viewModel.kelimeModels[index].turkish,
+        back: LineDetailCard(
+          title: viewModel.linesModels[index].turkish,
           color: Colors.orange,
         ),
       ),
-      itemCount: viewModel.kelimeModels.length,
+      itemCount: viewModel.linesModels.length,
       shrinkWrap: true,
     );
   }
 }
 
-class KelimeCard extends StatelessWidget {
-  final String kelime;
+class LineCard extends StatelessWidget {
+  final String line;
   final bool ezberlendi;
-  const KelimeCard({Key key, this.kelime, this.ezberlendi}) : super(key: key);
+  const LineCard({Key key, this.line, this.ezberlendi}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +93,7 @@ class KelimeCard extends StatelessWidget {
             children: [
               Center(
                 child: Text(
-                  kelime,
+                  line,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -110,10 +109,10 @@ class KelimeCard extends StatelessWidget {
   }
 }
 
-class KelimeDetailCard extends StatelessWidget {
+class LineDetailCard extends StatelessWidget {
   final String title;
   final MaterialColor color;
-  KelimeDetailCard({this.title, this.color});
+  LineDetailCard({this.title, this.color});
 
   @override
   Widget build(BuildContext context) {

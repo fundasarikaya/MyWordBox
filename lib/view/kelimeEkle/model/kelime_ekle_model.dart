@@ -4,13 +4,12 @@ part 'kelime_ekle_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class KelimeEkleModel extends INetworkModel<KelimeEkleModel> {
-  bool ezberlendi;
-  String kelimeEN;
-  String kelimeTR;
-  int kullaniciID;
+  bool memorized;
+  String english;
+  String turkish;
+  int userId;
 
-  KelimeEkleModel(
-      {this.ezberlendi, this.kelimeEN, this.kelimeTR, this.kullaniciID});
+  KelimeEkleModel({this.memorized, this.english, this.turkish, this.userId});
 
   @override
   KelimeEkleModel fromJson(Map<String, Object> json) {

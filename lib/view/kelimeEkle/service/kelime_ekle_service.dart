@@ -13,7 +13,7 @@ class KelimeEkleService extends IKelimeEkleService {
       KelimeEkleModel model) async {
     final response =
         await manager.fetch<KelimeEkleResponseModel, KelimeEkleResponseModel>(
-            NetworkRoutes.KELIME_EKLE.rawValue + ".json",
+            NetworkRoutes.WORD_ADD.rawValue + ".json",
             parseModel: KelimeEkleResponseModel(),
             method: RequestType.POST,
             data: model);

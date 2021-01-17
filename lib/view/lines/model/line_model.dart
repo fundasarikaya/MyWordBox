@@ -1,9 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:vexana/vexana.dart';
-part 'kelime_model.g.dart';
+part 'line_model.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.pascal)
-class KelimeModel extends INetworkModel<KelimeModel> {
+class LineModel extends INetworkModel<LineModel> {
   // @JsonKey(name: "_id")
   String key;
   bool memorized;
@@ -11,18 +11,18 @@ class KelimeModel extends INetworkModel<KelimeModel> {
   String turkish;
   int userId;
 
-  KelimeModel(
+  LineModel(
       {this.key, this.memorized, this.english, this.turkish, this.userId});
 
   @override
-  KelimeModel fromJson(Map<String, dynamic> json) {
-    return _$KelimeModelFromJson(json);
+  LineModel fromJson(Map<String, dynamic> json) {
+    return _$LineModelFromJson(json);
   }
 
   @override
-  Map<String, dynamic> toJson() => _$KelimeModelToJson(this);
+  Map<String, dynamic> toJson() => _$LineModelToJson(this);
 
-  factory KelimeModel.fromJson(Map<String, dynamic> json) {
-    return _$KelimeModelFromJson(json);
+  factory LineModel.fromJson(Map<String, dynamic> json) {
+    return _$LineModelFromJson(json);
   }
 }

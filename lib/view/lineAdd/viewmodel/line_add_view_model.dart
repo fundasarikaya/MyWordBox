@@ -1,27 +1,25 @@
 import 'package:MyWordBox/core/base/model/base_view_model.dart';
 import 'package:MyWordBox/core/init/network/vexana_manager.dart';
-import 'package:MyWordBox/view/kelimeEkle/model/kelime_ekle_model.dart';
-import 'package:MyWordBox/view/kelimeEkle/service/IKelimeEkleService.dart';
-import 'package:MyWordBox/view/kelimeEkle/service/kelime_ekle_service.dart';
-import 'package:MyWordBox/view/kelimeler/service/IKelimeService.dart';
+import 'package:MyWordBox/view/lineAdd/model/line_add_model.dart';
+import 'package:MyWordBox/view/lineAdd/service/ILineAddService.dart';
+import 'package:MyWordBox/view/lineAdd/service/line_add_service.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-part 'kelime_ekle_view_model.g.dart';
+part 'line_add_view_model.g.dart';
 
-class KelimeEkleViewModel = _KelimeEkleViewModelBase with _$KelimeEkleViewModel;
+class LineAddViewModel = _LineAddViewModelBase with _$LineAddViewModel;
 
-abstract class _KelimeEkleViewModelBase with Store, BaseViewModel {
+abstract class _LineAddViewModelBase with Store, BaseViewModel {
   GlobalKey<FormState> formState = GlobalKey();
   GlobalKey<ScaffoldState> scaffoldState = GlobalKey();
-  IKelimeEkleService kelimeEkleService;
+  ILineAddService kelimeEkleService;
 
   TextEditingController kelimeENController;
   TextEditingController kelimeTRController;
 
   void setContext(BuildContext context) => this.context = context;
   void init() {
-    kelimeEkleService =
-        KelimeEkleService(VexanaManager.instance.networkManager);
+    kelimeEkleService = LineAddService(VexanaManager.instance.networkManager);
     kelimeENController = TextEditingController();
     kelimeTRController = TextEditingController();
   }
@@ -30,15 +28,14 @@ abstract class _KelimeEkleViewModelBase with Store, BaseViewModel {
   bool isLoading = false;
 
   @action
-  Future<void> fetchKelimeEkleSevice() async {
+  Future<void> fetchLineAddSevice() async {
     isLoadingChange();
     if (formState.currentState.validate()) {
-      final response = await kelimeEkleService.fetchKelimeEkleSevice(
-          KelimeEkleModel(
-              english: kelimeENController.text,
-              turkish: kelimeTRController.text,
-              memorized: false,
-              userId: 0));
+      final response = await kelimeEkleService.fetchlineEkleSevice(LineAddModel(
+          english: kelimeENController.text,
+          turkish: kelimeTRController.text,
+          memorized: false,
+          userId: 0));
       print(response);
       // if (response != null) {
       //   scaffoldState.currentState

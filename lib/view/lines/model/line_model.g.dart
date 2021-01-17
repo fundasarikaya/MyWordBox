@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'kelime_model.dart';
+part of 'line_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-KelimeModel _$KelimeModelFromJson(Map<String, dynamic> json) {
-  return KelimeModel(
+LineModel _$LineModelFromJson(Map<String, dynamic> json) {
+  return LineModel(
     key: json['Key'] as String,
     memorized: json['Memorized'] as bool,
     english: json['English'] as String,
@@ -16,8 +16,7 @@ KelimeModel _$KelimeModelFromJson(Map<String, dynamic> json) {
   );
 }
 
-Map<String, dynamic> _$KelimeModelToJson(KelimeModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$LineModelToJson(LineModel instance) => <String, dynamic>{
       'Key': instance.key,
       'Memorized': instance.memorized,
       'English': instance.english,

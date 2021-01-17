@@ -9,9 +9,10 @@ class VexanaManager {
     return _instace;
   }
 
-  static const String _iosBaseUrl = "http://localhost:3000/";
+  static const String _iosBaseUrl =
+      "https://my-word-box-default-rtdb.firebaseio.com/";
   static const String _androidBaseUrl =
-      "https://kelimeler-b8679-default-rtdb.firebaseio.com/";
+      "https://my-word-box-default-rtdb.firebaseio.com/";
 
   VexanaManager._init();
 

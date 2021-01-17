@@ -1,8 +1,6 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:MyWordBox/core/base/view/base_widget.dart';
-import 'package:MyWordBox/core/init/lang/locale_keys.g.dart';
 import 'package:MyWordBox/view/_product/_widgets/card/home_card.dart';
 import 'package:MyWordBox/view/home/viewmodel/home_view_model.dart';
 
