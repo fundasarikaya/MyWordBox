@@ -18,7 +18,7 @@ class LineAddView extends StatelessWidget {
       onPageBuilder: (BuildContext context, LineAddViewModel value) => Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.lightBlueAccent[100],
-          title: Text("Kelime Ekle"),
+          title: Text("Replik Ekle"),
           elevation: 10,
         ),
         body: SafeArea(
