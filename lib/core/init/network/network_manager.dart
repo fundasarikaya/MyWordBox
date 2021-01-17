@@ -20,7 +20,7 @@ class NetworkManager {
 
   NetworkManager._init() {
     final baseOptions = BaseOptions(
-      baseUrl: "https://kelimeler-b8679-default-rtdb.firebaseio.com/",
+      baseUrl: "https://my-word-box-default-rtdb.firebaseio.com/",
       // headers: {
       //   "val": LocaleManager.instance.getStringValue(PreferencesKeys.TOKEN)
       // },
